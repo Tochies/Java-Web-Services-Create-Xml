@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tns:patient xmlns:tns="http://www.tochie.org/Patient" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tochie.org/Patient Create-XML-Schema.xsd ">
+<tns:patient xmlns:tns="http://www.tochie.org/Patient" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tochie.org/Patient Create-XML-Schema.xsd "
+id="123"
+>
   <tns:id>0</tns:id>
-  <tns:name>tns:Tochie</tns:name>
+  <tns:name>Tochie</tns:name>
   <tns:age>20</tns:age>
   <tns:dob>2001-01-01</tns:dob>
-  <tns:email>tns:test@yopmail.com</tns:email>
-  <tns:gender>tns:male</tns:gender>
-  <tns:phone>tns:1234567890</tns:phone>
+  <tns:email>test@yopmail.com</tns:email>
+  <tns:gender>M</tns:gender>
+  <tns:phone>1234567890</tns:phone>
+  <tns:payment>
+  	<tns:insurance>
+  		<tns:provider>Blue Cross</tns:provider>
+  		<tns:limit>100</tns:limit>
+  	</tns:insurance>
+  </tns:payment>
+  <tns:payment>
+  	<tns:cash>1000</tns:cash>
+  </tns:payment>
 </tns:patient>

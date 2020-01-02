@@ -3,19 +3,62 @@
 xmlns:tns="http://www.tochie.org/Patient" elementFormDefault="qualified">
 
 <!-- To use our nameSpace, we change the default targetNameSpace(tns is the prefix) to our choice nameSpace, using Tochie for now -->
+<!-- elementFormDefault is used to check if the xml file should use tns prefix before the element name. qualified enforces for t -->
 
 	<element name="patient" type="tns:Patient" />
 	
 	<complexType name="Patient">
 		<sequence>
-			<element name="id" type="int" />
-			<element name="name" type="string" />
+			<element name="id" type="tns:ID" />
+			<element name="name" type="tns:String15Chars" />
 			<element name="age" type="int" />
 			<element name="dob" type="date" />
 			<element name="email" type="string" />
-			<element name="gender" type="string" />
+			<element name="gender" type="tns:Gender" />
 			<element name="phone" type="string" />
+			<element  name="payment" type="tns:PaymentType" maxOccurs="2"/>
 		</sequence>
+		<attribute name="id" type="tns:ID" />
 	</complexType>
+	
+	<!-- Sequence complex type ensures that the xml must match the order of the elements, while choice complex type allows for any of the choice elements to be used -->
+	<!-- All complex type allows all the elements to be used in no particular order. Complex types can also be used inside another complex type -->
+	<!-- minOccurs, maxOccurs is used to define the minimum and maximum times an element should occur. it takes "[0-9]*" and takes  -->
+	
+	<complexType name="PaymentType">
+		<choice>
+			<element name="cash" type="int" />
+			<element name="insurance"  type="tns:Insurance" />
+		</choice>
+	</complexType>
+	
+	<complexType name="Insurance">
+		<all>
+			<element name="provider" type="string"/>
+			<element name="limit" type="int" />
+		</all>
+	</complexType>
+	
+	
+	<simpleType name="String15Chars"> 
+		<restriction base="string">
+			<maxLength value="15" />
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="ID">
+		<restriction base="int">
+			<pattern value="[0-9]*"></pattern>
+		</restriction>
+	</simpleType>
+	<!-- Pattern in restriction can take any regular expression -->
+	
+	<simpleType name="Gender">
+		<restriction base="string">
+			<enumeration value="M" />
+			<enumeration value="F" />
+		</restriction>
+		<!-- Enumeration is similar to ENUMS in java programming language -->
+	</simpleType>
 	
 </schema>
