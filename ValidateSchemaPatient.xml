@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:patient xmlns:tns="http://www.tochie.org/Patient" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tochie.org/Patient Create-XML-Schema.xsd ">
+  <tns:id>0</tns:id>
+  <tns:name>tns:Tochie</tns:name>
+  <tns:age>20</tns:age>
+  <tns:dob>2001-01-01</tns:dob>
+  <tns:email>tns:test@yopmail.com</tns:email>
+  <tns:gender>tns:male</tns:gender>
+  <tns:phone>tns:1234567890</tns:phone>
+</tns:patient>
